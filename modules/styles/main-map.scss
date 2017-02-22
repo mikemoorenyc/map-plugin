@@ -11,6 +11,21 @@
 #theMap {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 300px;
   background:#ccc;
+}
+#overview-map-container {
+  position: relative;
+  &.adding {
+    //cursor: crosshair !important;
+    #theMap, #theMap * {
+      cursor: crosshair !important;
+    }
+  }
+  >.controls {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+  }
 }

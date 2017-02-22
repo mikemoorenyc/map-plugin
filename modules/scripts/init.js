@@ -2,7 +2,7 @@
 
 
 var catTemp = (`
-<div>
+<div id="category-container" :class="('map'+mapStatus)">
 <ul id="category-list">
   <li v-for="(category,index) in categories" :data-index="index" :data-id="category.id" :key="category.id" >
     <div class="form" v-if="category.id === editing.id && editing.set === 'category'" :data-new="category.new">
@@ -134,15 +134,6 @@ catApp.$mount('#map-categories');
                 </div>`
   });
 
-  App.map = new google.maps.Map(document.getElementById('theMap'),
-  {
-    zoom: dObj.mapInfo.zoom,
-    center: {
-      lat: dObj.mapInfo.lat,
-      lng: dObj.mapInfo.lng
-    },
-    disableDefaultUI: true,
-    zoomControl: true
-  });
+  mapInit();
 
 })

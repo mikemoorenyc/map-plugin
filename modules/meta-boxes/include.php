@@ -41,9 +41,7 @@ function main_map_callback( $post ) {
 
   ?>
   <div id="global-point-container"></div>
-  <div id="overview-map-container">
-    <div id="theMap"></div>
-  </div>
+  <div id="map-vue"></div>
   <div id="point-list-container"></div>
   <?php
 }

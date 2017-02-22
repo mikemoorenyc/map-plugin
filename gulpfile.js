@@ -5,7 +5,7 @@ var   gulp = require('gulp'),
       replace = require('gulp-replace');
 
 gulp.task('move', function () {
-  return gulp.src(['kindling.php','component-maker.php', 'modules/**/*.html','modules/**/*.php'])
+  return gulp.src(['kindling.php','component-maker.php', 'modules/**/*.html','modules/**/*.php', 'plugin-*.js'])
     .pipe(replace('Plugin Name: Map Plugin DEV', 'Plugin Name: Map Plugin'))
     .pipe(gulp.dest('../map-plugin_prod'));
 });
@@ -27,7 +27,7 @@ gulp.task('js', function(){
 });
 
 gulp.task('watch', function() {
-    gulp.watch(['kindling.php','component-maker.php', 'modules/**/*.html','modules/**/*.php'], ['move']);
-    gulp.watch(['modules/**/entry.scss'], ['sass']);
+    gulp.watch(['kindling.php','component-maker.php', 'modules/**/*.html','modules/**/*.php','plugin-*.js'], ['move']);
+    gulp.watch(['modules/**/*.scss'], ['sass']);
 	gulp.watch(['modules/**/*.js'], ['js']);
 });

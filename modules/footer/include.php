@@ -12,12 +12,24 @@ function map_post_footer() {
 $blankData = array(
   'categories' => array(
     array(
-      'ID' => 1,
+      'id' => 1,
       'title' => 'Your First Category',
-      'color' => '#cc0000'
+      'color' => '#cc0000',
+      'points' => array()
+    ),
+    array(
+      'id' => 2,
+      'title' => 'Your Second Category',
+      'color' => '#00cc00',
+      'points' => array()
     )
   ),
-  'posts' => array()
+  'mapInfo' => array(
+    "zoom" => 14,
+    "lat" =>40.7680441,
+    "lng" =>-73.9845609
+  )
+
 );
 $initial = get_post_meta(get_the_ID(), 'mapJSON', true);
 if(empty($initial)) {
@@ -27,14 +39,16 @@ if(empty($initial)) {
 
  ?>
 <script>
-var firstState = <?php echo $initial;?>;
+var dObj = <?php echo $initial;?>;
+dObj.editing = false;
 var App = {};
 App.pluginDir = '<?php echo dirname(plugin_dir_url( __FILE__ ));?>';
 App.postID = <?php echo get_the_ID();?>;
 
-console.log(firstState.categories)
-</script>
 
+</script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
+<script src="<?php echo dirname(plugin_dir_url( __FILE__ ));?>/component-maker.php?getfull=scripts"></script>
 
 
 <?php

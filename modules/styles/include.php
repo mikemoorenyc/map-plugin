@@ -7,7 +7,7 @@ function add_styles(){
     return;
   }
   ?>
-  <link rel="stylesheet" type="text/css" href="<?php echo plugin_dir_url( __FILE__ );?>entry.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo plugin_dir_url( __FILE__ );?>entry.css?v=<?php echo time();?>">
   <?php
 }
 

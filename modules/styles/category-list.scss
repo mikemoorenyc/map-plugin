@@ -1,0 +1,12 @@
+#map_categories .inside {
+  margin: 0;
+  padding:0;
+}
+
+#category-list {
+  > li {
+    .regular {
+      border:1px solid black;
+    }
+  }
+}

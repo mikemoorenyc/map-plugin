@@ -11,10 +11,10 @@ if(empty($folder)) {
   die();
 }
 $clist = '';
-$dir = new DirectoryIterator('backend-modules/'.$folder.'/components');
+$dir = new DirectoryIterator(''.$folder.'/');
 foreach($dir as $d) {
   if(!$d->isDot()) {
-    $clist = $clist.file_get_contents('backend-modules/'.$folder.'/components/'.$d->getFilename(), true);
+    $clist = $clist.file_get_contents(''.$folder.'/'.$d->getFilename(), true);
   }
 }
 $clist = str_replace('"use strict";',"",$clist);

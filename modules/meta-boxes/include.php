@@ -40,8 +40,10 @@ function main_map_callback( $post ) {
 	wp_nonce_field( 'main_map', 'main_map_nonce' );
 
   ?>
-
-  <div id="overview-map-container"><?php echo plugin_dir_path( __FILE__ );?></div>
+  <div id="global-point-container"></div>
+  <div id="overview-map-container">
+    <div id="theMap"></div>
+  </div>
   <div id="point-list-container"></div>
   <?php
 }

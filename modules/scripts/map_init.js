@@ -22,15 +22,17 @@ function mapInit() {
         },
         disableDefaultUI: true,
         zoomControl: true,
-        styles: myStyles
+        styles: myStyles,
+        clickableIcons: false
       });
       App.ib = new google.maps.InfoWindow({
-          content: '<div id="point-editor"></div>',
+          content: '<div id="point-editor" ></div>',
+          maxWidth: 300
       });
 
       App.map.addListener('click', function(e) {
         if($('#overview-map-container').hasClass('adding')) {
-          addAPoint(e.latLng);
+          createPointEditor(e.latLng.lat(),e.latLng.lng(),new Date().getTime(), '', dObj.categories[0].id, true);
         }
       });
     }
@@ -42,7 +44,7 @@ function mapInit() {
 var mapContainerTemplate = (`
   <div id="overview-map-container" :class="mapStatus">
     <div id="theMap"></div>
-    <div class="controls">
+    <div class="controls" v-if="mapStatus !== 'editing'">
       <button v-if="!mapStatus" @click.prevent="mapStatus = 'adding'">Add a point</button>
       <button v-if="mapStatus" @click.prevent="mapStatus = null">Cancel</button>
     </div>

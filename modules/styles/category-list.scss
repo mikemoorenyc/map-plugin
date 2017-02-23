@@ -1,5 +1,5 @@
 #category-container {
-  &.mapadding {
+  &.mapadding, &.mapediting {
     pointer-events: none;
     opacity:.25;
   }

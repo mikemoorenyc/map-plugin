@@ -97,6 +97,14 @@ var catApp = new Vue({
         alert('You need at least one category.');
         return false;
       }
+      var key = this.categories.map(function(x){
+        return x.id;
+      }).indexOf(id);
+      if(this.categories[key].points.length) {
+        alert('This category has point associated with it.')
+        return false;
+      }
+
       this.categories = this.categories.filter(function(e){
         return e.id !== id;
       });
@@ -135,5 +143,6 @@ catApp.$mount('#map-categories');
   });
 
   mapInit();
+  pointListInt();
 
 })

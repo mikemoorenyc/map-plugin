@@ -41,6 +41,9 @@ var catTemp = (`
 var catApp = new Vue({
   data: dObj,
   template: catTemp,
+  updated: function() {
+    updatePinColor();
+  },
   methods: {
     cancelItem: function(e) {
       var p = $(e.target).closest('.form');
@@ -110,6 +113,7 @@ var catApp = new Vue({
       });
       this.editing = false;
     },
+
     addButton: function(e) {
       var newId = new Date().getTime();
       var newItem = {

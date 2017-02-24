@@ -3,13 +3,14 @@ function createPointEditor(lat,lng,id, title, category, newStatus) {
   App.newMarker = new google.maps.Marker({
     position: {lat:lat,lng:lng},
     map: App.map,
+    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569'
   });
   App.map.setCenter({lat:lat,lng:lng});
 //  App.ib.open(App.map, App.newMaker);
   App.pointerEditor = new Vue({
     data: {
       lat:lat,
-      lng:lat,
+      lng:lng,
       title: title,
       category: category,
       allCats : dObj.categories,
@@ -28,6 +29,7 @@ function createPointEditor(lat,lng,id, title, category, newStatus) {
         App.newMarker.setMap(null);
         App.newMarker = null;
         dObj.mapStatus = false;
+        setPoints();
       },
       saveClick: function() {
         if(!this.title) {

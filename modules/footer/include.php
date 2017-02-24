@@ -45,7 +45,7 @@ dObj.mapStatus = null;
 var App = {};
 App.pluginDir = '<?php echo dirname(plugin_dir_url( __FILE__ ));?>';
 App.postID = <?php echo get_the_ID();?>;
-
+App.markers = []
 
 
 </script>

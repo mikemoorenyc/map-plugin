@@ -1,8 +1,7 @@
+//DON"T USE THIS
+
 function addAPoint(point) {
 
-  App.newMarker = new google.maps.Marker({
-    position: point,
-    map: App.map,
-  });
+  console.log(point);
   createPointEditor(point,new Date().getTime(), '', dObj.categories[0].id, true);
 }

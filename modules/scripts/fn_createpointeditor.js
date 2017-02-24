@@ -1,4 +1,10 @@
 function createPointEditor(lat,lng,id, title, category, newStatus) {
+  //REMOVE markers
+  $(App.markers).each(function(i,e){
+    google.maps.event.clearInstanceListeners(e);
+    e.setMap(null);
+  });
+  App.markers = [];
   dObj.mapStatus = 'editing';
   App.newMarker = new google.maps.Marker({
     position: {lat:lat,lng:lng},
@@ -56,9 +62,9 @@ function createPointEditor(lat,lng,id, title, category, newStatus) {
 }
 var pointEditorTemplate = (`
   <div id="point-editor" class="pointeditor" style="width:300px;">
-    <label>Title <span>{{title}}</span></label>
+    <label>Title </label>
     <input type="text" value="" v-model="title" />
-    <label>Category <span>{{category}}</span></label>
+    <label>Category </label>
     <select v-model="category">
       <option v-for="c in allCats" :value="c.id" >{{c.title}}</option>
     </select>

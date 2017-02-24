@@ -27,7 +27,17 @@ function setPoints() {
     App.markers.push(marker)
     App.markers[App.markers.length - 1].addListener('dragend', function(e) {
 
-      updatePointPosition(this.id,this.catid,e.latLng.lat(),e.latLng.lng());
+      pointUpdater({
+        id: this.id,
+        category: this.catid,
+        title: this.title,
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng()
+      });
     })
+    App.markers[App.markers.length - 1].addListener('click',function(e){
+
+      createPointEditor(this.position.lat(),this.position.lng(),this.id, this.title, this.catid, false);
+    });
   }
 }

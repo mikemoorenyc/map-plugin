@@ -1,4 +1,4 @@
-function updatePointPosition(id,catid,lat,lng) {
+function updatePoint(newpoint) {
   var categoryKey = dObj.categories.map(function(x){
     return x.id;
   }).indexOf(catid);

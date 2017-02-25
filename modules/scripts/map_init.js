@@ -3,6 +3,11 @@ function mapInit() {
     el: '#map-vue',
     data: dObj,
     template: mapContainerTemplate,
+    created: function() {
+      App.bus.$on('updateData', function(data){
+        this.data = data;
+      }.bind(this));
+    },
     mounted: function() {
       var myStyles =[
           {
@@ -31,6 +36,7 @@ function mapInit() {
       });
 
       App.map.addListener('click', function(e) {
+    
         if($('#overview-map-container').hasClass('adding')) {
           createPointEditor(e.latLng.lat(),e.latLng.lng(),new Date().getTime(), '', dObj.categories[0].id, true);
         }

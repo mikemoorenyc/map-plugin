@@ -36,7 +36,7 @@ function setPoints() {
       });
     })
     App.markers[App.markers.length - 1].addListener('click',function(e){
-
+      console.log(this.position.lat());
       createPointEditor(this.position.lat(),this.position.lng(),this.id, this.title, this.catid, false);
     });
   }

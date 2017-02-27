@@ -8,6 +8,8 @@ function add_styles(){
   }
   ?>
   <link rel="stylesheet" type="text/css" href="<?php echo plugin_dir_url( __FILE__ );?>entry.css?v=<?php echo time();?>">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
   <?php
 }
 

@@ -17,7 +17,7 @@ foreach($dir as $d) {
     $clist = $clist.file_get_contents(''.$folder.'/'.$d->getFilename(), true);
   }
 }
-$clist = str_replace('"use strict";',"",$clist);
+$clist = str_replace("'use strict';","",$clist);
 $clist = '"use strict";'.$clist;
 echo preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $clist);
 

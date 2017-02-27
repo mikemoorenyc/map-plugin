@@ -1,11 +1,31 @@
 function createPointEditor(lat,lng,id, title, category, newStatus) {
+  toggleMarkers(false);
+  App.bus.$emit('mapStatus','editing');
+  if(!newStatus) {
+    var markerKey = findKey(App.markers, id);
+    App.markers[markerKey].setMap(null);
+  }
+  App.newMarker = new google.maps.Marker({
+    position: {lat:lat,lng:lng},
+    map: App.map,
+    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569',
+    zIndex: 999
+  });
+  App.map.setCenter({lat:lat,lng:lng});
+  App.ib.addListener('domready', function() {
+    pointFormInit(lat,lng,id, title, category, newStatus);
+  });
+  App.ib.open(App.map, App.newMarker);
+
   //REMOVE markers
+  /*
   $(App.markers).each(function(i,e){
     google.maps.event.clearInstanceListeners(e);
     e.setMap(null);
   });
   App.markers = [];
   dObj.mapStatus = 'editing';
+
   App.newMarker = new google.maps.Marker({
     position: {lat:lat,lng:lng},
     map: App.map,
@@ -77,4 +97,5 @@ var pointEditorTemplate = (`
 
   </div>
 
-`);
+`);*/
+}

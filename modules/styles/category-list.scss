@@ -3,6 +3,10 @@
     pointer-events: none;
     opacity:.25;
   }
+  .footer {
+    padding: 0 12px 12px 12px;
+    border-top: 1px solid #eee;
+  }
 }
 
 #map_categories .inside {
@@ -11,9 +15,42 @@
 }
 
 #category-list {
+  margin: 0;
   > li {
+    border-bottom: 1px solid #eee;
+    margin:0;
+    &:last-child {
+      border:0;
+    }
     .regular {
-      border:1px solid black;
+      border-left:3px solid black;
+      padding: 5px 12px 5px (12px - 3px);
+      position: relative;
+      > .controls {
+        color: #ddd;
+        font-size:.90em;
+        visibility: hidden;
+        > span {
+          display:inline-block;
+          &:before {
+            display:inline-block;
+            content:'|';
+            margin: 0 5px;
+          }
+          &:first-child:before {
+            display:none;
+          }
+        }
+        a {
+          text-decoration: none;
+
+        }
+      }
+      &:hover {
+        > .controls {
+          visibility: visible;
+        }
+      }
     }
   }
 }

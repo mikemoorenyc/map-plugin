@@ -23,11 +23,6 @@ $blankData = array(
       'color' => '#00cc00',
       'points' => array()
     )
-  ),
-  'mapInfo' => array(
-    "zoom" => 14,
-    "lat" =>40.7680441,
-    "lng" =>-73.9845609
   )
 
 );
@@ -45,13 +40,14 @@ dObj.mapStatus = null;
 var App = {};
 App.pluginDir = '<?php echo dirname(plugin_dir_url( __FILE__ ));?>';
 App.postID = <?php echo get_the_ID();?>;
-App.markers = []
+App.markers = [];
 
 
 </script>
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
 <script src="<?php echo dirname(plugin_dir_url( __FILE__ ));?>/plugin-infobox.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
 <script src="<?php echo dirname(plugin_dir_url( __FILE__ ));?>/component-maker.php?getfull=scripts"></script>
 
 <?php
